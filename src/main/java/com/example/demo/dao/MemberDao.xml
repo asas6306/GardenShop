@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.MemberDao">
+	<select id="login" resultType="Member">
+		select * from `member`
+		left join auth on `member`.authLevel = auth.authLevel 
+		where ID = #{ID}
+	</select>
+	
+	<insert id="signup" useGeneratedKeys="true" keyProperty="uid">
+		insert into `member` set
+		ID = #{ID}, PW = #{PW}, nickname = #{nickname}, 
+		name = #{name}, email = #{email}, phoneNo = #{phoneNo}
+	</insert>
+	
+	<select id="getMember" resultType="Member">
+		select * from `member`
+		left join auth on `member`.authLevel = auth.authLevel
+		where 1
+		and delState = 0
+		<choose>
+			<when test="type=='uid'">
+				and uid = #{itemValue}
+			</when>
+			<when test="type=='ID'">
+				and ID = #{itemValue}
+			</when>
+			<when test="type=='nickname'">
+				and nickname = #{itemValue}
+			</when>
+			<when test="type=='email'">
+				and email = #{itemValue}
+			</when>
+		</choose>
+	</select>
+	
+	<update id="update">
+		update member 
+		<set>
+		<if test="PW != null">
+			PW = #{PW}, 
+		</if>
+		nickname = #{nickname}, 
+		email = #{email}, 
+		phoneNo = #{phoneNo}
+		</set>
+		where uid = #{uid}
+	</update>
+	
+	<select id="allMembersCnt" resultType="int">
+		select count(*) from member where delState = 0
+	</select>
+	
+	<select id="getMembersCnt" resultType="int">
+		select count(*) from member
+		where 1
+		and delState = 0
+		<if test="authLevel != 0">
+			and authLevel = #{authLevel}
+		</if>
+		<if test="searchKeyword != null">
+			<choose>
+				<when test="searchType == 'ID'">
+					and ID like concat('%' , #{searchKeyword}, '%')
+				</when>
+				<when test="searchType == 'nickname'">
+					and nickname like concat('%' , #{searchKeyword}, '%')
+				</when>
+			</choose>
+		</if>
+	</select>
+	
+	<select id="getMembers" resultType="Member">
+		select * from member
+		left join auth on member.authLevel = auth.authLevel
+		where 1
+		and delState = 0
+		<if test="authLevel != 0">
+			and member.authLevel = #{authLevel}
+		</if>
+		<if test="searchKeyword != null">
+			<choose>
+				<when test="searchType == 'ID'">
+					and ID like concat('%' , #{searchKeyword}, '%')
+				</when>
+				<when test="searchType == 'nickname'">
+					and nickname like concat('%' , #{searchKeyword}, '%')
+				</when>
+				<when test="searchType == 'phoneAndEmail'">
+					and (phoneNo like concat('%' , #{searchKeyword}, '%')
+					or email like concat('%' , #{searchKeyword}, '%'))
+				</when>
+			</choose>
+		</if>
+		order by uid desc
+		limit #{page}, #{pageCnt}
+	</select>
+	
+	<update id="delete">
+		update `member` 
+		set nickname = CONCAT(nickname ,'_d'), 
+		delState = 1, 
+		delDate = now() 
+		where uid = #{uid}
+	</update>
+	
+	<select id="getMemberForFindId" resultType="Member">
+		select * from member 
+		where name = #{name} and email = #{email}
+	</select>
+	
+	<update id="setTempPassword">
+		update member set PW = #{tempPassword} where uid = #{uid}
+	</update>
+</mapper>
