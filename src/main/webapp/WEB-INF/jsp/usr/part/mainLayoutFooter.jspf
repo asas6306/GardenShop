@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<footer class="text-gray-300 bg-gray-900 border-t mt-8">
+	<div class="flex justify-center h-36 border-b">
+		
+	</div>
+</footer>
+<%@ include file="footer.jspf"%>
