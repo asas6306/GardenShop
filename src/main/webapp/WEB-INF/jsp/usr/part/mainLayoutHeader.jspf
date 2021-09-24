@@ -3,25 +3,114 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="header.jspf"%>
 
+<script>
+	const LoginForm__checkAndSubmitDone = false;
+	function LoginForm__Check(form) {
+		if(LoginForm__checkAndSubmitDone)
+			return;
+	
+		form.ID.value = form.ID.value.trim();
+		form.PWInput.value = form.PWInput.value.trim();
+		
+		if(form.ID.value.length == 0) {
+			alert('아이디를 입력해주세요.');
+			form.ID.focus();
+			
+			return;
+		}
+		
+		if(form.PWInput.value.length == 0) {
+			alert('비밀번호를 입력해주세요.');
+			form.PWInput.focus();
+			
+			return;
+		}
+		form.PW.value = sha256(form.PWInput.value);
+		form.PWInput.value = '';
+		
+		form.submit();
+		LoginForm__checkAndSubmitDone = true;
+}
+</script>
+
 <header class="top-bar bg-white">
 	<div class="flex justify-center hover:shadow-md border-b">
 		<nav class="h-10 flex items-center justify-center text-gray-500 text-sm container">
-			<ul class="flex w-full md:w-4/5 justify-end">
+			<ul class="RepTop flex w-full md:w-4/5 justify-end">
 				<c:choose>
 					<c:when test="${rq.notLogined}">
-						<li>
-							<a href="${rq.loginPageUri}" class="p-3 hover:text-gray-900"> 
-								<i class="fas fa-sign-in-alt"></i>
-								<span>로그인</span>
-							</a>
-						</li>
-						<span>|</span>
-						<li>
-							<a href="../member/signup" class="p-3 hover:text-gray-900">
-								<i class="fas fa-user-plus"></i>
-								<span>회원가입</span>
-							</a>
-						</li>
+						<div class="notLoginedTop flex">
+							<li><!-- href="${rq.loginPageUri}"  -->
+								<span class="p-3 hover:text-gray-900 cursor-pointer"> 
+									<i class="fas fa-sign-in-alt"></i>
+									<span onclick="Show__LoginTop(this);">로그인</span>
+								</span>
+							</li>
+							<span>|</span>
+							<li>
+								<a href="../member/signup" class="p-3 hover:text-gray-900">
+									<i class="fas fa-user-plus"></i>
+									<span>회원가입</span>
+								</a>
+							</li>
+						</div>
+						<div class="loginTop flex hidden gap-1">
+							<form action="../member/doLogin" method="post" onsubmit="LoginForm__Check(this); return false;">
+								<input type="hidden" name="PW" />
+								<input type="text" name="ID" class="border rounded outline-none" onkeyup="Length__Limit(this, 24);" placeholder="아이디"/>
+								<input type="password" name="PWInput" class="border rounded outline-none" onkeyup="Length__Limit(this, 20);" placeholder="비밀번호"/>
+								<input type="submit" value="로그인" class="w-12 cursor-pointer bg-blue-300 hover:bg-blue-500 text-black" />
+								<input type="button" value="취소" class="w-12 cursor-pointer bg-red-300 hover:bg-red-500 text-black" onclick="Show__LoginTop(this);" />
+							</form>
+						</div>
+						<script>
+						function Show__LoginTop(btn) {
+							const $clicked = $(btn);
+							const target1 = $clicked.closest('.RepTop').find('.notLoginedTop');
+							const target2 = $clicked.closest('.RepTop').find('.loginTop');
+							if(btn.value == '취소') {
+								target1.css('display', 'flex');
+								target2.css('display', 'none');
+							} else {
+								target1.css('display', 'none');
+								target2.css('display', 'flex');
+							}
+						}
+						
+						function Show__NomalTop(btn) {
+							const $clicked = $(btn);
+							const target1 = $clicked.closest('.RepTop').find('.notLoginedTop');
+							const target2 = $clicked.closest('.RepTop').find('.loginTop');
+							
+						}
+						
+						function Length__Limit(obj, limit) {
+							const text = obj.value;
+							const len = text.length;
+							var rlen = 0;
+							
+							let totalByte = 0;
+							for(let i=0; i<len; i++) {
+								const each_char = text.charAt(i);
+								const uni_char = escape(each_char);
+								
+								if(uni_char.length>4) {
+									totalByte += 2;
+								} else {
+									totalByte += 1;
+								}
+								
+								if(totalByte <= limit) {
+									rlen = i + 1;
+								}
+							}
+							
+							if(totalByte > limit) {
+								obj.value = text.substr(0, rlen);
+							}
+						}
+						
+						</script>
 					</c:when>
 					<c:otherwise>
 						<c:if test="${rq.admin}">
@@ -37,14 +126,6 @@
 							<a href="../member/mypage" class="p-3 hover:text-gray-900">
 								<i class="fas fa-user"></i>
 								<span>마이페이지</span>
-							</a>
-						</li>
-						<span>|</span>
-						<li>
-							<a href="../note/list" class="p-3 hover:text-gray-900">
-								<i class="fas fa-paper-plane"></i>
-								<span>쪽지함</span>
-								<span>${newNoteCnt}</span>
 							</a>
 						</li>
 						<span>|</span>
