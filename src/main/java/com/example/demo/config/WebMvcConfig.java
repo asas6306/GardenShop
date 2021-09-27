@@ -65,8 +65,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 				.excludePathPatterns("/common/**").excludePathPatterns("/error")
 				.excludePathPatterns("/usr/home/*")
 				// 게시물
-				.excludePathPatterns("/usr/article/list").excludePathPatterns("/usr/article/detail")
-				.excludePathPatterns("/usr/article/showDetail")
+				.excludePathPatterns("/usr/car/*")
 				// 회원
 				.excludePathPatterns("/usr/member/signup").excludePathPatterns("/usr/member/doSignup")
 				.excludePathPatterns("/usr/member/login").excludePathPatterns("/usr/member/doLogin")
