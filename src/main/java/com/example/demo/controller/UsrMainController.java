@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +24,8 @@ public class UsrMainController {
 	@RequestMapping("/usr/home/main")
 	public String home(HttpServletRequest req) {
 		
-		Car bestCar = cs.getBest();
+		List<Car> bestCar = cs.getBest();
+		req.setAttribute("bestCar", bestCar);
 		
 		return "/usr/home/main";
 	}

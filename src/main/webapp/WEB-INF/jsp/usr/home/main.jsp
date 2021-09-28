@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../part/mainLayoutHeader.jspf"%>
 
 <section class="main-setting flex justify-center">
@@ -13,10 +14,9 @@
 					<span class="w-full text-center text-4xl p-4"><i class="far fa-thumbs-up"></i> BEST</span>
 				</div>
 				<div class="grid grid-cols-4 p-1">
-					<div>1</div>
-					<div>2</div>
-					<div>3</div>
-					<div>4</div>
+					<c:forEach var="car" items="${bestCar}">
+						${car.name}
+					</c:forEach>
 				</div>
 			</div>
 			<div class="h-4"></div>
