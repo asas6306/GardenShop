@@ -17,5 +17,10 @@ public class CarService {
 		
 		return cd.getBestCar();
 	}
+
+	public List<Car> getCars(String group) {
+		
+		return cd.getCars(group);
+	}
 	
 }

@@ -4,10 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.dao.CarDao">
+	<select id="getCars" resultType="Car">
+		select * from car
+		where `group` = #{group}
+	</select>
+	
 	<select id="getBestCar" resultType="Car">
 		select * from car, carDetail
 		where car.cid = carDetail.cid
 		order by sales
 		limit 4;
 	</select>
+	
 </mapper>
