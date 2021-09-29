@@ -10,11 +10,9 @@
 	<div class="max-w-5xl w-full">
 		<div>
 			<c:forEach var="car" items="${cars}">
-				<c:set var="fileValue" value="car.extra.file__common__${car.name}[0]"></c:set>
-				${fileValue}
-				<!-- 
-				<c:set var="file" value="${fileValue}"></c:set>
-				${file}
+				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
+				<c:set var="carName" value="${car.name}"></c:set>
+				<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
 				<c:if test="${file != null && file.fileExtTypeCode == 'img'}">
 					<div>
 						<a href="${file.forPrintUri}" target="_blank" title="자세히 보기">
@@ -22,7 +20,6 @@
 						</a>
 					</div>
 				</c:if>
-				 -->
 			</c:forEach>
 		</div>
 	</div>
