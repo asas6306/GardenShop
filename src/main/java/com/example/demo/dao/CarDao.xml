@@ -6,7 +6,9 @@
 <mapper namespace="com.example.demo.dao.CarDao">
 	<select id="getCars" resultType="Car">
 		select * from car
-		where `group` = #{group}
+		<if test="group != null">
+			where `group` = #{group}
+		</if>
 	</select>
 	
 	<select id="getBestCar" resultType="Car">

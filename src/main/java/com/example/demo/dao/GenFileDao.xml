@@ -29,7 +29,7 @@
 		<if test="typeCode != null">
 		and typeCode = #{typeCode}
 		</if>
-		<if test="type2Code != null">
+		<if test="type2Code != null || type2Code != 'ALL'">
 		and type2Code = #{type2Code}
 		</if>
 		order by typeCode, Type2Code, fileNo
@@ -39,8 +39,7 @@
 		select * from genFile where
 		relTypeCode = #{relTypeCode}
 		and relId = #{relId}
-		and typeCode =
-		#{typeCode}
+		and typeCode = #{typeCode}
 		and type2Code = #{type2Code}
 		and fileNo = #{fileNo}
 	</select>
@@ -63,9 +62,7 @@
 	select * from genFile where fid = #{fid}
 	</select>
 	
-	<select
-		id="getGenFilesRelTypeCodeAndRelIdsAndTypeCodeAndType2Code"
-		resultType="GenFile">
+	<select id="getGenFilesRelTypeCodeAndRelIdsAndTypeCodeAndType2Code" resultType="GenFile">
 		SELECT *
 		FROM genFile
 		WHERE 1
@@ -76,7 +73,9 @@
 		</foreach>
 		AND relTypeCode = #{relTypeCode}
 		AND typeCode = #{typeCode}
-		AND type2Code = #{type2Code}
+		<if test="type2Code != 'ALL'">
+			AND type2Code = #{type2Code}
+		</if>
 		ORDER BY relId, fileNo
 	</select>
 </mapper>

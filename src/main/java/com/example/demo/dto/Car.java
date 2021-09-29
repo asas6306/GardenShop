@@ -27,4 +27,17 @@ public class Car {
 		
 		return extra;
 	}
+	
+	
+	public String getMainCarImgUri(String type) {
+        return "/common/genFile/file/car/" + cid + "/common/" + type + "/0";
+    }
+	
+	public String getWriterProfileFallbackImgUri() {
+        return "/gen/member/basic/non_profile.png";
+    }
+
+    public String getWriterProfileFallbackImgOnErrorHtmlAttr() {
+        return "this.src = '" + getWriterProfileFallbackImgUri() + "'";
+    }
 }

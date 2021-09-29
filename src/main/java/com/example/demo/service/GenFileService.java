@@ -68,8 +68,8 @@ public class GenFileService {
         }
         
         String fileDir = null;
-        if(relTypeCode.equals("member"))
-        	fileDir = "user_profile_img";
+        if(relTypeCode.equals("car"))
+        	fileDir = type2Code;
         else
         	fileDir = Util.getNowYearMonthDateStr();
         if(fileDir == null)
@@ -221,7 +221,6 @@ public class GenFileService {
 			String typeCode, String type2Code) {
 		List<GenFile> genFiles = fd.getGenFilesRelTypeCodeAndRelIdsAndTypeCodeAndType2Code(relTypeCode, relIds,
 				typeCode, type2Code);
-		Map<String, GenFile> map = new HashMap();
 		Map<Integer, Map<String, GenFile>> rs = new LinkedHashMap<>();
 		
 		for(GenFile genFile : genFiles) {
