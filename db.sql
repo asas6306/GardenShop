@@ -121,3 +121,10 @@ INSERT INTO attr (
 )
 SELECT NOW(), NOW(), 'member', uid, 'extra', 'needToChangePassword', 0, NULL
 FROM `member`;
+
+CREATE TABLE auth (
+authLevel INT(3) UNSIGNED NOT NULL,
+authName CHAR(20) NOT NULL
+);
+INSERT INTO auth SET authLevel = 3, authName = '일반회원';
+INSERT INTO auth SET authLevel = 7, authName = '관리자';
