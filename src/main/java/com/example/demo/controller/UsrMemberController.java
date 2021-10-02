@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,18 @@ public class UsrMemberController {
         }
 
 		return Util.msgAndReplace(msg, redirectUri);
+	}
+	
+	@RequestMapping("/usr/member/doLogout")
+	@ResponseBody
+	public String doLogout(HttpSession session, HttpServletRequest req) {
+		
+		String uri = req.getRequestURI();
+		System.out.println("test!" + uri);
+		
+		session.removeAttribute("loginedMemberUid");
+		session.removeAttribute("loginedMemberJsonStr");
+		
+		return Util.msgAndReplace("로그아웃 되었습니다.", null);
 	}
 }

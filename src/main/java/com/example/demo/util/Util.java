@@ -79,7 +79,9 @@ public class Util {
 		sb.append("<script>");
 		if(msg != null)
 			sb.append("alert('" + msg + "');");
-		if(url.equals("close"))
+		if(url == null)
+			sb.append("history.back();");
+		else if(url.equals("close"))
 			sb.append("window.close();");
 		else
 			sb.append("location.replace('" + url + "');");

@@ -69,6 +69,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 				// 회원
 				.excludePathPatterns("/usr/member/signup").excludePathPatterns("/usr/member/doSignup")
 				.excludePathPatterns("/usr/member/login").excludePathPatterns("/usr/member/doLogin")
+				.excludePathPatterns("/usr/member/doLogout")
 				.excludePathPatterns("/usr/member/findID").excludePathPatterns("/usr/member/doFindID")
 				.excludePathPatterns("/usr/member/findPW").excludePathPatterns("/usr/member/doFindPW")
 				.excludePathPatterns("/usr/member/getLoginIdDup").excludePathPatterns("/usr/member/getNicknameDup")

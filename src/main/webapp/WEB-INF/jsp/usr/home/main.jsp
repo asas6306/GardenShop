@@ -43,7 +43,8 @@
 					<c:forEach var="car" items="${recommendCar}">
 						<div class="border">
 						<c:set var="carName" value="${car.name}"></c:set>
-						<c:set var="file" value="${car.extra.file__common__ALL[String.valueOf(0)]}"></c:set>
+						<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
+						<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
 							<div class="border">
 								<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
 									<img alt="사진 준비중 입니다." src="${file.forPrintUri}" />
