@@ -20,14 +20,31 @@ public class CarService {
 	
 	public List<Car> getBest() {
 		
-		return cd.getBestCar();
+		List<Car> cars = cd.getBestCar();
+		
+		// 해당 이미지 가져오기
+		List<Integer> cids = cars.stream().map(car -> car.getCid())
+				.collect(Collectors.toList());
+		if(!cids.isEmpty()) {
+			Map<Integer, Map<String, GenFile>> filesMap = 
+					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "ALL");
+
+			for(Car car : cars) {
+				Map<String, GenFile> mapByFileNo = filesMap.get(car.getCid());
+
+				if (mapByFileNo != null)
+					car.getExtraNotNull().put("file__common__" + "ALL", mapByFileNo);
+			}
+		}
+		
+		return cars;
 	}
 
 	public List<Car> getCars(String group, String type) {
 		
 		List<Car> cars = cd.getCars(group);
 		
-		// 게시물 이미지 가져오기
+		// 해당 이미지 가져오기
 		List<Integer> cids = cars.stream().map(car -> car.getCid())
 				.collect(Collectors.toList());
 		if(!cids.isEmpty()) {
@@ -39,6 +56,28 @@ public class CarService {
 
 				if (mapByFileNo != null)
 					car.getExtraNotNull().put("file__common__" + type, mapByFileNo);
+			}
+		}
+		
+		return cars;
+	}
+
+	public List<Car> getRecommend() {
+		
+		List<Car> cars = cd.getRecommend();
+		
+		// 해당 이미지 가져오기
+		List<Integer> cids = cars.stream().map(car -> car.getCid())
+				.collect(Collectors.toList());
+		if(!cids.isEmpty()) {
+			Map<Integer, Map<String, GenFile>> filesMap = 
+					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "ALL");
+
+			for(Car car : cars) {
+				Map<String, GenFile> mapByFileNo = filesMap.get(car.getCid());
+
+				if (mapByFileNo != null)
+					car.getExtraNotNull().put("file__common__" + "ALL", mapByFileNo);
 			}
 		}
 		

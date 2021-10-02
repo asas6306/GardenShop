@@ -14,8 +14,15 @@
 	<select id="getBestCar" resultType="Car">
 		select * from car, carDetail
 		where car.cid = carDetail.cid
-		order by sales
+		order by sales desc
 		limit 4;
+	</select>
+	
+	<select id="getRecommend" resultType="Car">
+		select * from car, carDetail
+		where car.cid = carDetail.cid
+		order by `count` desc
+		limit 2;
 	</select>
 	
 </mapper>

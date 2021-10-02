@@ -16,13 +16,11 @@
 		</div>
 		<div class="grid grid-cols-3 gap-5 p-4">
 			<c:forEach var="car" items="${cars}">
-				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
 				<c:set var="carName" value="${car.name}"></c:set>
-				<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
-				<c:if test="${file != null && file.fileExtTypeCode == 'img'}">
+				<c:set var="file" value="${car.extra.file__common__ALL[String.valueOf(0)]}"></c:set>
 					<div class="border">
-						<a href="${file.forPrintUri}" target="_blank" title="자세히 보기">
-							<img src="${file.forPrintUri}" />
+						<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
+							<img alt="사진 준비중 입니다." src="${file.forPrintUri}" />
 						</a>
 						<div class="p-2">
 							<div>
@@ -45,7 +43,6 @@
 							</div>
 						</div>
 					</div>
-				</c:if>
 			</c:forEach>
 		</div>
 	</div>

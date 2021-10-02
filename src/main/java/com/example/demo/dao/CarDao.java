@@ -14,4 +14,6 @@ public interface CarDao {
 
 	public List<Car> getCars(@Param(value="group") String group);
 
+	public List<Car> getRecommend();
+
 }

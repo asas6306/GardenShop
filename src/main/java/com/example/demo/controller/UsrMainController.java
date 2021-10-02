@@ -27,6 +27,9 @@ public class UsrMainController {
 		List<Car> bestCar = cs.getBest();
 		req.setAttribute("bestCar", bestCar);
 		
+		List<Car> recommendCar = cs.getRecommend();
+		req.setAttribute("recommendCar", recommendCar);
+		
 		return "/usr/home/main";
 	}
 }
