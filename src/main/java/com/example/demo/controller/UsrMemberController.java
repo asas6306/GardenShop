@@ -21,7 +21,7 @@ public class UsrMemberController {
 	
 	@RequestMapping("/usr/member/doLogin")
 	@ResponseBody
-	public String doLogin(HttpSession session, String redirectUri, String ID, String PW) {
+	public String doLogin(HttpSession session, String afterLoginUri, String ID, String PW) {
 		
 		ResultData doLoginRd = ms.login(ID, PW);
 
@@ -41,28 +41,36 @@ public class UsrMemberController {
         String msg = null;
         if ( isTempPassword ) {
             msg = "임시 비밀번호를 변경해주세요.";
-            redirectUri = "/usr/member/mypage";
+            afterLoginUri = "/usr/member/mypage";
         } else if(needToChangePassword) { 
         	msg = "비밀번호를 변경한지 " + ms.getNeedToChangePassword() + "일이 경과하였습니다. 비밀번호를 변경해주세요.";
-            redirectUri = "/usr/member/mypage";
+            afterLoginUri = "/usr/member/mypage";
 		} else {
         	msg = String.format("%s님 환영합니다.", member.getNickname());
-        	redirectUri = Util.ifEmpty(redirectUri, "../home/main");        	
+        	afterLoginUri = Util.ifEmpty(afterLoginUri, "../home/main");        	
         }
 
-		return Util.msgAndReplace(msg, redirectUri);
+		return Util.msgAndReplace(msg, "../.." + afterLoginUri);
+	}
+	
+	@RequestMapping("/usr/member/logout")
+	@ResponseBody
+	public String logout(String afterLogoutUri) {
+		
+		System.out.println("test!" + afterLogoutUri);
+		
+		return Util.msgAndReplace(null, "doLogout?afterLogoutUri=" + afterLogoutUri);
 	}
 	
 	@RequestMapping("/usr/member/doLogout")
 	@ResponseBody
-	public String doLogout(HttpSession session, HttpServletRequest req) {
-		
-		String uri = req.getRequestURI();
-		System.out.println("test!" + uri);
+	public String doLogout(HttpSession session, String afterLogoutUri) {
 		
 		session.removeAttribute("loginedMemberUid");
 		session.removeAttribute("loginedMemberJsonStr");
 		
-		return Util.msgAndReplace("로그아웃 되었습니다.", null);
+		System.out.println("test!" + afterLogoutUri);
+		
+		return Util.msgAndReplace("로그아웃 되었습니다.", afterLogoutUri);
 	}
 }

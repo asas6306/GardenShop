@@ -65,14 +65,14 @@ public class Rq {
         String afterLoginUri;
         
         if (isLoginPage()) {
-            afterLoginUri = Util.getUriEncoded(paramMap.get("afterLoginUri"));
+            afterLoginUri = paramMap.get("afterLoginUri");
         } else if(isNeedLogoutPage()){
-        	afterLoginUri = this.getEncodedCurrentUri("/usr/home/main");
+        	afterLoginUri = "/usr/home/main";
         } else {
-            afterLoginUri = getEncodedCurrentUri(getCurrentUri());
+            afterLoginUri = getCurrentUri();
         }
 
-        return "../member/login?afterLoginUri=" + afterLoginUri;
+        return afterLoginUri;
     }
 
     private boolean isLoginPage() {
@@ -86,5 +86,17 @@ public class Rq {
     	needLogoutPage.add("/usr/member/findPW");
     	
     	return needLogoutPage.contains(currentUrl);
+    }
+    
+    public String getLogoutPageUri() {
+        String afterLogoutUri;
+        
+        if (isLoginPage()) {
+        	afterLogoutUri = Util.getUriEncoded(paramMap.get("afterLogoutUri"));
+        } else {
+        	afterLogoutUri = getEncodedCurrentUri(getCurrentUri());
+        }
+
+        return "../member/logout?afterLogoutUri=" + afterLogoutUri;
     }
 }
