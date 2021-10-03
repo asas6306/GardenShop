@@ -59,7 +59,7 @@
 								</li>
 								<span>|</span>
 								<li>
-									<a href="../member/signup" class="p-3 hover:text-gray-900">
+									<a href="../member/signup?afterUri=${rq.afterUri}" class="p-3 hover:text-gray-900">
 										<i class="fas fa-user-plus"></i>
 										<span>회원가입</span>
 									</a>

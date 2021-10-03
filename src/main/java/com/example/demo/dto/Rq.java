@@ -99,4 +99,22 @@ public class Rq {
 
         return "../member/logout?afterLogoutUri=" + afterLogoutUri;
     }
+    
+    private boolean isSignupPage() {
+        return currentUrl.equals("/usr/member/signup");
+    }
+    
+    public String getAfterUri() {
+    	String afterSignupUri;
+    	
+    	if (isSignupPage()) {
+    		afterSignupUri = Util.getUriEncoded(paramMap.get("afterUri"));
+        } else {
+        	afterSignupUri = getEncodedCurrentUri(getCurrentUri());
+        }
+    	
+    	return afterSignupUri;
+    }
+    
+    
 }
