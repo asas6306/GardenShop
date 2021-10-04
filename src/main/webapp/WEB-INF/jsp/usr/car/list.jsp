@@ -19,31 +19,32 @@
 				<c:set var="carName" value="${car.name}"></c:set>
 				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
 				<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
-					<div class="border">
-						<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
-							<img alt="사진 준비중 입니다." src="${file.forPrintUri}" />
-						</a>
-						<div class="p-2">
+				<div class="border">
+					<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
+						<img alt="사진 준비중 입니다." src="${file.forPrintUri}" />
+					</a>
+					<div class="p-2">
+						<div>
+							<span class="text-2xl font-bold">${car.name}</span>
+							<span class="text-gray-500">&nbsp${car.year}</span>
+						</div>
+						<div class="flex justify-between">
 							<div>
-								<span class="text-2xl font-bold">${car.name}</span>
-								<span class="text-gray-500">&nbsp${car.year}</span>
+								<span class="text-2xl">${Util.numberFormat(car.price)}</span>
+								<span>원 부터</span>
 							</div>
-							<div class="flex justify-between">
-								<div>
-									<span class="text-2xl">${Util.numberFormat(car.price)}</span>
-									<span>원 부터</span>
-								</div>
-								<div class="flex justify-center pt-1">
-									<input type="button" value="견적내기" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__contact('${car.name}', ${car.year}, ${rq.loginedMember.uid})" />
-									<script>
-									function send__contact(car, year, uid) {
-										alert(car + year + uid);
-									}
-									</script>
-								</div>
+							<div class="flex justify-center pt-1">
+								<input type="button" value="상담신청" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__counsel('${car.name}', ${car.year}, ${rq.loginedMember.uid})" />
+								<script>
+								function send__counsel(car, year, uid) {
+									alert(car + year + uid);
+									location.href='../cnsl/send?uid=' + uid + '&target=' + car + '&year=' + year;
+								}
+								</script>
 							</div>
 						</div>
 					</div>
+				</div>
 			</c:forEach>
 		</div>
 	</div>

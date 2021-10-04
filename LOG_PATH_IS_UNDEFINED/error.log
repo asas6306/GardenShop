@@ -1,10 +1,44 @@
-2021-10-03 19:57:51 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
-	Syntax error on token ",", FormalParameter expected after this token
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+2021-10-04 20:31:18 [ERROR] o.m.spring.mapper.MapperFactoryBean - Error while adding the mapper 'interface com.example.demo.dao.CounselDao' to configuration.
+org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.loadXmlResource(MapperAnnotationBuilder.java:179)
+	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.parse(MapperAnnotationBuilder.java:118)
+	at org.apache.ibatis.binding.MapperRegistry.addMapper(MapperRegistry.java:72)
+	at org.apache.ibatis.session.Configuration.addMapper(Configuration.java:841)
+	at org.mybatis.spring.mapper.MapperFactoryBean.checkDaoConfig(MapperFactoryBean.java:80)
+	at org.springframework.dao.support.DaoSupport.afterPropertiesSet(DaoSupport.java:44)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
@@ -26,205 +60,18 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
-	Syntax error on token ",", FormalParameter expected after this token
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problem: 
-	Syntax error on token ",", FormalParameter expected after this token
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:58)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 20:06:10 [ERROR] o.a.c.c.C.[.[localhost].[/].[jsp] - Servlet.service() for servlet [jsp] threw exception
-javax.el.PropertyNotFoundException: The class 'com.example.demo.dto.Rq' does not have the property 'getLoginPageUri'.
-	at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576)
-	at javax.el.BeanELResolver.getValue(BeanELResolver.java:291)
-	at org.apache.jasper.el.JasperELResolver.getValue(JasperELResolver.java:125)
-	at com.sun.el.parser.AstValue.getValue(AstValue.java:114)
-	at com.sun.el.parser.AstValue.getValue(AstValue.java:177)
-	at com.sun.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:183)
-	at org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate(PageContextImpl.java:699)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspx_meth_c_005fwhen_005f0(main_jsp.java:515)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspx_meth_c_005fchoose_005f0(main_jsp.java:448)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspService(main_jsp.java:232)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:71)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:467)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:378)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:326)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:457)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-10-03 20:06:10 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [An exception occurred processing [/WEB-INF/jsp/usr/home/../part/mainLayoutHeader.jspf] at line [77]
-
-74: 									<input type="submit" value="로그인" class="w-12 cursor-pointer bg-blue-300 hover:bg-blue-500 text-black" />
-75: 									<input type="button" value="취소" class="w-12 cursor-pointer bg-red-300 hover:bg-red-500 text-black" onclick="Show__LoginTop(this);" />
-76: 								</form>
-77: 								${rq.getLoginPageUri}
-78: 							</div>
-79: 							<script>
-80: 							function Show__LoginTop(btn) {
-
-
-Stacktrace:] with root cause
-javax.el.PropertyNotFoundException: The class 'com.example.demo.dto.Rq' does not have the property 'getLoginPageUri'.
-	at javax.el.BeanELResolver.getBeanProperty(BeanELResolver.java:576)
-	at javax.el.BeanELResolver.getValue(BeanELResolver.java:291)
-	at org.apache.jasper.el.JasperELResolver.getValue(JasperELResolver.java:125)
-	at com.sun.el.parser.AstValue.getValue(AstValue.java:114)
-	at com.sun.el.parser.AstValue.getValue(AstValue.java:177)
-	at com.sun.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:183)
-	at org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate(PageContextImpl.java:699)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspx_meth_c_005fwhen_005f0(main_jsp.java:515)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspx_meth_c_005fchoose_005f0(main_jsp.java:448)
-	at org.apache.jsp.WEB_002dINF.jsp.usr.home.main_jsp._jspService(main_jsp.java:232)
-	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:71)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:467)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:378)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:326)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:710)
-	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:457)
-	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:384)
-	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:312)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:171)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:316)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-10-03 21:03:21 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error, insert "}" to complete ClassBody
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token "}", delete this token
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+Caused by: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.apache.ibatis.builder.MapperBuilderAssistant.setCurrentNamespace(MapperBuilderAssistant.java:78)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:115)
+	... 59 common frames omitted
+2021-10-04 20:31:19 [ERROR] o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'usrCounselController': Unsatisfied dependency expressed through field 'cnsls'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'counselService': Unsatisfied dependency expressed through field 'cnsld'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'counselDao' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\dao\CounselDao.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
@@ -246,245 +93,72 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error, insert "}" to complete ClassBody
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token "}", delete this token
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error, insert "}" to complete ClassBody
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token ",", FormalParameter expected after this token
-	Syntax error on token "}", delete this token
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:71)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 21:03:40 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'counselService': Unsatisfied dependency expressed through field 'cnsld'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'counselDao' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\dao\CounselDao.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:660)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at com.example.demo.GardenShopApplication.main(GardenShopApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:79)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 21:03:52 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 26 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'counselDao' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\dao\CounselDao.class]: Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
 	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
 	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at com.example.demo.GardenShopApplication.main(GardenShopApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:78)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 21:03:58 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at com.example.demo.GardenShopApplication.main(GardenShopApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:79)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 21:04:03 [ERROR] o.s.boot.SpringApplication - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'usrMemberController' defined in file [C:\work\sts-4.9.0.RELEASE-workspace\GardenShop\target\classes\com\example\demo\controller\UsrMemberController.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1316)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1214)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:769)
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:761)
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1313)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
-	at com.example.demo.GardenShopApplication.main(GardenShopApplication.java:10)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.example.demo.controller.UsrMemberController]: Constructor threw exception; nested exception is java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:225)
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:87)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1308)
-	... 23 common frames omitted
-Caused by: java.lang.Error: Unresolved compilation problems: 
-	Syntax error on token ",", FormalParameter expected after this token
-	afterLogoutUri cannot be resolved to a variable
-
-	at com.example.demo.controller.UsrMemberController.<init>(UsrMemberController.java:78)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
-	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:212)
-	... 25 common frames omitted
-2021-10-03 21:11:57 [ERROR] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
-11. insert into `member` set
-		ID = 'user1', PW = 'f9777362314a88ba0d7df701ed6bebd0a3577be33befe72babc40c39de65ab1f', nickname = 'user1', 
-		name = 'user1', email = 'user1@a.a', phoneNo = '010-0000-0000'
- {FAILED after 7 msec}
-java.sql.SQLException: Field 'address1' doesn't have a default value
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	... 40 common frames omitted
+Caused by: java.lang.IllegalArgumentException: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.mybatis.spring.mapper.MapperFactoryBean.checkDaoConfig(MapperFactoryBean.java:83)
+	at org.springframework.dao.support.DaoSupport.afterPropertiesSet(DaoSupport.java:44)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	... 50 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Error parsing Mapper XML. The XML location is 'com/example/demo/dao/CounselDao.xml'. Cause: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:123)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:95)
+	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.loadXmlResource(MapperAnnotationBuilder.java:179)
+	at org.apache.ibatis.builder.annotation.MapperAnnotationBuilder.parse(MapperAnnotationBuilder.java:118)
+	at org.apache.ibatis.binding.MapperRegistry.addMapper(MapperRegistry.java:72)
+	at org.apache.ibatis.session.Configuration.addMapper(Configuration.java:841)
+	at org.mybatis.spring.mapper.MapperFactoryBean.checkDaoConfig(MapperFactoryBean.java:80)
+	... 53 common frames omitted
+Caused by: org.apache.ibatis.builder.BuilderException: Wrong namespace. Expected 'com.example.demo.dao.CounselDao' but found 'com.example.demo.dao.CarDao'.
+	at org.apache.ibatis.builder.MapperBuilderAssistant.setCurrentNamespace(MapperBuilderAssistant.java:78)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:115)
+	... 59 common frames omitted
+2021-10-04 20:32:59 [ERROR] jdbc.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+31. insert into counsel
+		set uid = 1, target = NULL, `year` = '2021car=AVANTE'
+ {FAILED after 9 msec}
+java.sql.SQLIntegrityConstraintViolationException: Column 'target' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
 	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
 	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at jdk.internal.reflect.GeneratedMethodAccessor217.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
-	at com.sun.proxy.$Proxy92.execute(Unknown Source)
+	at com.sun.proxy.$Proxy84.execute(Unknown Source)
 	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
 	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
 	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
@@ -502,9 +176,9 @@ java.sql.SQLException: Field 'address1' doesn't have a default value
 	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
-	at com.sun.proxy.$Proxy147.signup(Unknown Source)
-	at com.example.demo.service.MemberService.signup(MemberService.java:84)
-	at com.example.demo.controller.UsrMemberController.doSignup(UsrMemberController.java:93)
+	at com.sun.proxy.$Proxy214.reqCounsel(Unknown Source)
+	at com.example.demo.service.CounselService.reqCounsel(CounselService.java:18)
+	at com.example.demo.controller.UsrCounselController.send(UsrCounselController.java:21)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -518,8 +192,8 @@ java.sql.SQLException: Field 'address1' doesn't have a default value
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
@@ -555,28 +229,27 @@ java.sql.SQLException: Field 'address1' doesn't have a default value
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:832)
-2021-10-03 21:11:57 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLException: Field 'address1' doesn't have a default value
-### The error may exist in com/example/demo/dao/MemberDao.xml
+2021-10-04 20:32:59 [ERROR] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'target' cannot be null
+### The error may exist in com/example/demo/dao/CounselDao.xml
 ### The error may involve defaultParameterMap
 ### The error occurred while setting parameters
-### SQL: insert into `member` set   ID = ?, PW = ?, nickname = ?,    name = ?, email = ?, phoneNo = ?
-### Cause: java.sql.SQLException: Field 'address1' doesn't have a default value
-; Field 'address1' doesn't have a default value; nested exception is java.sql.SQLException: Field 'address1' doesn't have a default value] with root cause
-java.sql.SQLException: Field 'address1' doesn't have a default value
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+### SQL: insert into counsel   set uid = ?, target = ?, `year` = ?
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'target' cannot be null
+; Column 'target' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'target' cannot be null] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Column 'target' cannot be null
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:117)
 	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
 	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
 	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
 	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at jdk.internal.reflect.GeneratedMethodAccessor217.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
 	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
-	at com.sun.proxy.$Proxy92.execute(Unknown Source)
+	at com.sun.proxy.$Proxy84.execute(Unknown Source)
 	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
 	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
 	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
@@ -594,9 +267,9 @@ java.sql.SQLException: Field 'address1' doesn't have a default value
 	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
 	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
 	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
-	at com.sun.proxy.$Proxy147.signup(Unknown Source)
-	at com.example.demo.service.MemberService.signup(MemberService.java:84)
-	at com.example.demo.controller.UsrMemberController.doSignup(UsrMemberController.java:93)
+	at com.sun.proxy.$Proxy214.reqCounsel(Unknown Source)
+	at com.example.demo.service.CounselService.reqCounsel(CounselService.java:18)
+	at com.example.demo.controller.UsrCounselController.send(UsrCounselController.java:21)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -610,8 +283,8 @@ java.sql.SQLException: Field 'address1' doesn't have a default value
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)

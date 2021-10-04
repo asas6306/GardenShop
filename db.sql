@@ -128,3 +128,13 @@ authName CHAR(20) NOT NULL
 );
 INSERT INTO auth SET authLevel = 3, authName = '일반회원';
 INSERT INTO auth SET authLevel = 7, authName = '관리자';
+
+CREATE TABLE counsel(
+cid INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+uid INT(10) UNSIGNED NOT NULL,
+target CHAR(30) NOT NULL,
+regDate DATETIME DEFAULT NOW(),
+respState TINYINT(1) UNSIGNED NOT NULL DEFAULT 0,
+respDate DATETIME
+);
+ALTER TABLE counsel ADD `year` CHAR(4) NOT NULL AFTER target;
