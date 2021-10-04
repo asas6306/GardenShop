@@ -15,7 +15,7 @@ public class UsrItemController {
 		
 		
 		
-		return "/usr/car/list";
+		return "/usr/item/list";
 	}
 	
 }

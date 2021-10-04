@@ -6,7 +6,7 @@
 <mapper namespace="com.example.demo.dao.CarDao">
 	<select id="getCars" resultType="Car">
 		select * from car
-		<if test="group != null">
+		<if test="group != 'all'">
 			where `group` = #{group}
 		</if>
 		order by cid desc
