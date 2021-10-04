@@ -9,6 +9,7 @@
 		<if test="group != null">
 			where `group` = #{group}
 		</if>
+		order by cid desc
 	</select>
 	
 	<select id="getBestCar" resultType="Car">

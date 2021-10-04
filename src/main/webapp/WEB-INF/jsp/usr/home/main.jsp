@@ -60,10 +60,14 @@
 											<span>원 부터</span>
 										</div>
 										<div class="flex justify-center pt-1">
-											<input type="button" value="견적내기" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__contact('${car.name}', ${car.year}, ${rq.loginedMember.uid})" />
+											<input type="button" value="상담신청" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__counsel('${car.name}', ${car.year}, ${rq.loginedMember.uid})" />
 											<script>
-											function send__contact(car, year, uid) {
-												alert(car + year + uid);
+											function send__counsel(car, year, uid) 
+											{
+												const result = confirm('상담을 요청하시겠습니까?');
+												
+												if(result)
+													location.href='../cnsl/send?uid=' + uid + '&target=' + car + '&year=' + year;
 											}
 											</script>
 										</div>

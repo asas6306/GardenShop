@@ -198,25 +198,25 @@
 						</div>
 					</li>
 					<li>
-						<a href="../article/list?articleType=memo" class="p-2 lg:p-3">
+						<a href="../item/list" class="p-2 lg:p-3">
 							<i class="fas fa-list-ul"></i>
-							<span>메모장</span>
+							<span>차량용품</span>
 						</a>
 						<div>
 							<ul>
 								<li>
-									<a href="../article/list?articleType=memo"> 
-										<span>전체메모</span>
+									<a href="../item/list"> 
+										<span>전체보기</span>
 									</a>
 								</li>
 								<li>
-									<a href="../article/list?boardCode=1&articleType=memo"> 
-										<span>웹</span>
+									<a href="../item/list?group=wash"> 
+										<span>세차용품</span>
 									</a>
 								</li>
 								<li>
-									<a href="../article/list?boardCode=2&articleType=memo"> 
-										<span>정보처리기사</span>
+									<a href="../article/list?group=freshener"> 
+										<span>방향제</span>
 									</a>
 								</li>
 							</ul>
