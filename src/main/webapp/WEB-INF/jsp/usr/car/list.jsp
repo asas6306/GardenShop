@@ -38,7 +38,7 @@
 								<script>
 								function send__counsel(car, year, uid) 
 								{
-									const result = confirm('정말로 삭제하시겠습니까?');
+									const result = confirm('상담을 요청하시겠습니까?');
 									
 									if(result)
 										location.href='../cnsl/send?uid=' + uid + '&target=' + car + '&year=' + year;

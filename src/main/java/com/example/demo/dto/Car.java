@@ -33,11 +33,11 @@ public class Car {
         return "/common/genFile/file/car/" + cid + "/common/" + type + "/0";
     }
 	
-	public String getWriterProfileFallbackImgUri() {
+	public String getCarProfileFallbackImgUri() {
         return "/gen/member/basic/non_profile.png";
     }
 
-    public String getWriterProfileFallbackImgOnErrorHtmlAttr() {
-        return "this.src = '" + getWriterProfileFallbackImgUri() + "'";
+    public String getCarProfileFallbackImgOnErrorHtmlAttr() {
+        return "this.src = '" + getCarProfileFallbackImgUri() + "'";
     }
 }
