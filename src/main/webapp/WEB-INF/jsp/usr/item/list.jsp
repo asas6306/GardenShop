@@ -15,16 +15,34 @@
 			</c:if>
 		</div>
 		<div class="grid grid-cols-4 gap-3 p-4">
-			<c:forEach var="car" items="${items}">
+			<c:forEach var="item" items="${items}">
 				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
-				<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
+				<c:set var="file" value="${item.extra.file__common__all[fileNo]}"></c:set>
 				<div class="border">
 					<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
 						<img alt="사진 준비중 입니다." src="${file.forPrintUri}" />
 					</a>
 					<div class="p-2">
 						<div>
-							<span class="text-2xl font-bold">${car.name}</span>
+							<span class="text-xl font-bold">${item.name}</span>
+						</div>
+						<div class="flex justify-between">
+							<div>
+								<span class="text-lg">${Util.numberFormat(item.price)}</span>
+								<span class="text-sm">원 부터</span>
+							</div>
+							<div class="flex justify-center pt-1">
+								<input type="button" value="장바구니에 담기" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__counsel('${item.iid}', ${rq.loginedMember.uid})" />
+								<script>
+								function send__counsel(iid, uid) 
+								{
+									const result = confirm('장바구니에 담겠습니까?');
+									
+									if(result)
+										location.href='../item/putIn?uid=' + uid + '&iid=' + iid;
+								}
+								</script>
+							</div>
 						</div>
 					</div>
 				</div>

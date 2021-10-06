@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.dto.Item;
 import com.example.demo.dto.Rq;
 import com.example.demo.service.BasketService;
 import com.example.demo.service.ItemService;
+import com.example.demo.util.ResultData;
+import com.example.demo.util.Util;
 
 @Controller
 public class UsrItemController {
@@ -38,7 +41,17 @@ public class UsrItemController {
 		int uid = rq.getLoginedMemberUid();
 		
 		List<Item> items = bs.getBasketList(uid);
+		req.setAttribute("items", items);
 		
 		return "/usr/item/basket";
+	}
+	
+	@RequestMapping("/usr/item/putIn")
+	@ResponseBody
+	public String putIn(int iid, int uid) {
+		
+		ResultData basketPutInRd = bs.putIn(iid, uid);
+		
+		return Util.msgAndBack(basketPutInRd.getMsg());
 	}
 }

@@ -12,4 +12,6 @@ public interface BasketDao {
 
 	public List<Item> getBasketList(@Param(value = ("uid")) int uid);
 
+	public void putIn(@Param(value = "iid") int iid, @Param(value = "uid") int uid);
+
 }
