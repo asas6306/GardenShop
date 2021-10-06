@@ -13,7 +13,6 @@ public class ItemService {
 	@Autowired
 	ItemDao id;
 	
-	
 	public List<Item> getItems(String group) {
 		
 		return id.getItems(group);

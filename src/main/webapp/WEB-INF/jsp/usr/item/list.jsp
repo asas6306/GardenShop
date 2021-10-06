@@ -15,7 +15,7 @@
 			</c:if>
 		</div>
 		<div class="grid grid-cols-4 gap-3 p-4">
-			<c:forEach var="car" items="${cars}">
+			<c:forEach var="car" items="${items}">
 				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
 				<c:set var="file" value="${car.extra.file__common__ALL[fileNo]}"></c:set>
 				<div class="border">
@@ -25,7 +25,6 @@
 					<div class="p-2">
 						<div>
 							<span class="text-2xl font-bold">${car.name}</span>
-							<span class="text-gray-500">&nbsp${car.year}</span>
 						</div>
 					</div>
 				</div>
