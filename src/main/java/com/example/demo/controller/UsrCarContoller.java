@@ -25,7 +25,7 @@ public class UsrCarContoller {
 	@RequestMapping("/usr/car/list")
 	public String list(HttpServletRequest req, @RequestParam(defaultValue = "all") String group, @RequestParam(defaultValue = "1") int page) {
 		
-		List<Car> cars = cs.getCars(group, "ALL");
+		List<Car> cars = cs.getCars(group);
 		req.setAttribute("cars", cars);
 		
 		int carsCnt = cars.size(); 

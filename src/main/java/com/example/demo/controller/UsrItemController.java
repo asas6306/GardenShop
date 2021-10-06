@@ -54,4 +54,13 @@ public class UsrItemController {
 		
 		return Util.msgAndBack(basketPutInRd.getMsg());
 	}
+	
+	@RequestMapping("/usr/item/putOut")
+	@ResponseBody
+	public String putOut(int bid) {
+		
+		ResultData basketPutOutRd = bs.putOut(bid);
+		
+		return Util.msgAndReplace(basketPutOutRd.getMsg(), "basket");
+	}
 }

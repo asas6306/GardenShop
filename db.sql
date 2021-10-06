@@ -25,6 +25,9 @@ cid INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 price INT(30) UNSIGNED NOT NULL
 );
 ALTER TABLE car ADD `code` CHAR(5) NOT NULL AFTER `name`;
+# 샘플
+# INSERT INTO genfile SET relTypeCode = 'car', relId = 5, originFileName = 'SONATA.png', fileExt = 'png', typeCode = 'common', type2Code = 'SEDAN', fileSize = 341276, fileExtTypeCode = 'img', fileExtType2Code = 'png', fileNo = 0, fileDir = '5';
+# INSERT INTO genfile SET relTypeCode = 'car', relId = 6, originFileName = 'TUCSON.png', fileExt = 'png', typeCode = 'common', type2Code = 'SUV', fileSize = 391467, fileExtTypeCode = 'img', fileExtType2Code = 'png', fileNo = 0, fileDir = '6';
 
 CREATE TABLE carDetail(
 cid INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,

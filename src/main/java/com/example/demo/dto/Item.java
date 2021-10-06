@@ -19,7 +19,9 @@ public class Item {
 	private String price;
 	private String regDate;
 	
-	private int count;		// basket 연동 수량
+	// basket 연동
+	private int bid;
+	private int count;
 	
 	private String extra__thumbImg;
 	private Map<String, Object> extra;

@@ -60,7 +60,7 @@
 								<span>|</span>
 								<li>
 									<a href="../member/findID" class="p-3 hover:text-gray-900">
-										<i class="fas fa-user-plus"></i>
+										<i class="fas fa-search"></i>
 										<span>회원찾기</span>
 									</a>
 								</li>
@@ -142,6 +142,13 @@
 							</li>
 							<span>|</span>
 							<li>
+								<a href="../item/basket" class="p-3 hover:text-gray-900">
+									<i class="fas fa-cart-arrow-down"></i>
+									<span>장바구니</span>
+								</a>
+							</li>
+							<span>|</span>
+							<li>
 								<a href="${rq.logoutPageUri}" class="p-3 hover:text-gray-900">
 									<i class="fas fa-sign-out-alt"></i>
 									<span>로그아웃</span>
@@ -165,7 +172,7 @@
 					</li>
 					<li>
 						<a href="../car/list" class="p-2 lg:p-3">
-							<i class="far fa-list-alt"></i>
+							<i class="fas fa-car"></i>
 							<span>차량</span>
 						</a>
 						<div>
@@ -206,7 +213,7 @@
 					</li>
 					<li>
 						<a href="../item/list" class="p-2 lg:p-3">
-							<i class="fas fa-list-ul"></i>
+							<i class="fas fa-dolly-flatbed"></i>
 							<span>차량용품</span>
 						</a>
 						<div>

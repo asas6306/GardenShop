@@ -27,13 +27,12 @@ public class ItemService {
 				.collect(Collectors.toList());
 		if(!iids.isEmpty()) {
 			Map<Integer, Map<String, GenFile>> filesMap = 
-					fs.getFilesMapKeyRelIdAndFileNo("item", iids, "common", "wash");
-			System.out.println("test!" + filesMap);
+					fs.getFilesMapKeyRelIdAndFileNo("item", iids, "common", group);
 			for(Item item : items) {
 				Map<String, GenFile> mapByFileNo = filesMap.get(item.getIid());
 		
 				if (mapByFileNo != null)
-					item.getExtraNotNull().put("file__common__" + group, mapByFileNo);
+					item.getExtraNotNull().put("file__common__all", mapByFileNo);
 			}
 		}
 		

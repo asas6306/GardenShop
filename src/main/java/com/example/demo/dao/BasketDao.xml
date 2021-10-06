@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.demo.dao.BasketDao">
 	<select id="getBasketList" resultType="Item">
-		select item.*, basket.`count` from basket, item
+		select item.*, basket.bid, basket.`count` from basket, item
 		where basket.iid = item.iid
 		and basket.uid = #{uid}
 	</select>
@@ -14,4 +14,9 @@
 		insert into basket
 		set uid = #{uid}, iid = #{iid}, `count` = 1
 	</insert>
+	
+	<delete id="putOut">
+		delete from basket
+		where bid = #{bid}
+	</delete>
 </mapper>

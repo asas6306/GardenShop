@@ -27,20 +27,20 @@ public class CarService {
 				.collect(Collectors.toList());
 		if(!cids.isEmpty()) {
 			Map<Integer, Map<String, GenFile>> filesMap = 
-					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "ALL");
+					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "all");
 
 			for(Car car : cars) {
 				Map<String, GenFile> mapByFileNo = filesMap.get(car.getCid());
 
 				if (mapByFileNo != null)
-					car.getExtraNotNull().put("file__common__" + "ALL", mapByFileNo);
+					car.getExtraNotNull().put("file__common__all", mapByFileNo);
 			}
 		}
 		
 		return cars;
 	}
 
-	public List<Car> getCars(String group, String type) {
+	public List<Car> getCars(String group) {
 		
 		List<Car> cars = cd.getCars(group);
 		
@@ -49,13 +49,13 @@ public class CarService {
 				.collect(Collectors.toList());
 		if(!cids.isEmpty()) {
 			Map<Integer, Map<String, GenFile>> filesMap = 
-					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", type);
+					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", group);
 
 			for(Car car : cars) {
 				Map<String, GenFile> mapByFileNo = filesMap.get(car.getCid());
 
 				if (mapByFileNo != null)
-					car.getExtraNotNull().put("file__common__" + type, mapByFileNo);
+					car.getExtraNotNull().put("file__common__all", mapByFileNo);
 			}
 		}
 		
@@ -71,13 +71,13 @@ public class CarService {
 				.collect(Collectors.toList());
 		if(!cids.isEmpty()) {
 			Map<Integer, Map<String, GenFile>> filesMap = 
-					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "ALL");
+					fs.getFilesMapKeyRelIdAndFileNo("car", cids, "common", "all");
 
 			for(Car car : cars) {
 				Map<String, GenFile> mapByFileNo = filesMap.get(car.getCid());
 
 				if (mapByFileNo != null)
-					car.getExtraNotNull().put("file__common__" + "ALL", mapByFileNo);
+					car.getExtraNotNull().put("file__common__all", mapByFileNo);
 			}
 		}
 		

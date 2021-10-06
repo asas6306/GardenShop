@@ -69,7 +69,7 @@ public class GenFileService {
         
         String fileDir = null;
         if(relTypeCode.equals("car"))
-        	fileDir = type2Code;
+        	fileDir = String.valueOf(relId);
         else
         	fileDir = Util.getNowYearMonthDateStr();
         if(fileDir == null)

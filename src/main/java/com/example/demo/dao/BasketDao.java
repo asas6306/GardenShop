@@ -14,4 +14,6 @@ public interface BasketDao {
 
 	public void putIn(@Param(value = "iid") int iid, @Param(value = "uid") int uid);
 
+	public void putOut(@Param(value = "bid") int bid);
+
 }

@@ -32,9 +32,9 @@
 								<span class="text-sm">원 부터</span>
 							</div>
 							<div class="flex justify-center pt-1">
-								<input type="button" value="장바구니에 담기" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="send__counsel('${item.iid}', ${rq.loginedMember.uid})" />
+								<input type="button" value="장바구니에 담기" class="px-2 bg-blue-300 hover:bg-blue-500 text-sm" onclick="item__putIn('${item.iid}', ${rq.loginedMember.uid})" />
 								<script>
-								function send__counsel(iid, uid) 
+								function item__putIn(iid, uid) 
 								{
 									const result = confirm('장바구니에 담겠습니까?');
 									
