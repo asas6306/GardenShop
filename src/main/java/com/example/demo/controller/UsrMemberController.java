@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.example.demo.dto.Member;
+import com.example.demo.dto.Rq;
 import com.example.demo.service.GenFileService;
 import com.example.demo.service.MemberService;
 import com.example.demo.util.ResultData;
@@ -201,5 +202,88 @@ public class UsrMemberController extends _BaseController {
 		} else {
 			return new ResultData("F-4", "이메일 형식을 확인해주세요.");
 		}
+	}
+	
+	// 마이페이지 이동
+	@RequestMapping("/usr/member/mypage")
+	public String mypage(HttpServletRequest req, @RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "article") String call, @RequestParam Map<String, Object> param) {
+
+
+		return "usr/member/mypage";
+	}
+	
+	// 아이디 찾기 페이지로 이동
+	@RequestMapping("/usr/member/findID")
+	public String findID() {
+
+		return "usr/member/findID";
+	}
+	
+	// 아이디 찾기 동작
+	@RequestMapping("/usr/member/doFindID")
+	@ResponseBody
+	public String doFindID(String name, String email) {
+		Member member = ms.getMemberForFindId(name, email);
+		
+		if (member == null)
+			return Util.msgAndBack("일치하는 회원을 찾을 수 없습니다.");
+		
+		String msg = "회원님의 아이디는 " + member.getID() + " 입니다.";
+		String redirectUri = Util.ifEmpty(null, "findPW");
+		return Util.msgAndReplace(msg, redirectUri);
+	}
+	
+	// 비밀번호 찾기 페이지로 이동
+	@RequestMapping("/usr/member/findPW")
+	public String findPW() {
+
+		return "usr/member/findPW";
+	}
+	
+	// 비밀번호 찾기 동작
+	@RequestMapping("/usr/member/doFindPW")
+	@ResponseBody
+	public String doFindPW(String ID, String email) {
+		Member member = ms.getMember("ID", ID);
+		
+		if (member == null) {
+	        return Util.msgAndBack("일치하는 회원이 존재하지 않습니다.");
+	    }
+
+	    if (!member.getEmail().equals(email)) {
+	        return Util.msgAndBack("일치하는 회원이 존재하지 않습니다.");
+	    }
+
+	    ResultData notifyTempLoginPwByEmailRs = ms.notifyTempLoginPwByEmail(member);
+
+	    return Util.msgAndReplace(notifyTempLoginPwByEmailRs.getMsg(), "login");
+	}
+	
+	// 인증페이지로 이동
+	@RequestMapping("/usr/member/authentication")
+	public String authentication(HttpServletRequest req) {
+		
+		return "usr/member/authentication";
+	}
+	
+	// 인증페이지 동작
+	@RequestMapping("/usr/member/doAuthentication")
+	@ResponseBody
+	public String doAuthentication(HttpServletRequest req, String PW, String redirectUri) {
+		Rq rq = (Rq)req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
+		Member loginedMember = ms.getMember("uid", String.valueOf(uid));
+		String orignalPW = loginedMember.getPW();
+		
+		if (!PW.equals(orignalPW)) {
+	        return Util.msgAndBack("비밀번호가 일치하지 않습니다.");
+	    }
+		
+		String authCode = ms.genCheckPasswordAuthCode(uid);
+		
+		redirectUri = Util.getNewUri(redirectUri, "checkPasswordAuthCode", authCode);
+
+		return Util.msgAndReplace(null, redirectUri);
 	}
 }
