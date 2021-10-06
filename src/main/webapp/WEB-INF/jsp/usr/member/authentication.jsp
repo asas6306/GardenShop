@@ -27,7 +27,7 @@
 </script>
 
 <section class="flex justify-center">
-	<div class="member-box container p-4">
+	<div class="container p-4" style="width: 500px;">
 		<div class="border-2 border-blue-300 rounded-xl p-4">
 			<div class="text-center text-4xl font-bold text-bold">사용자 인증</div>
 			<form action="doAuthentication" method="post" onsubmit="AuthenticationForm__checkAndSubmit(this); return false;">
