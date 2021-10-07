@@ -63,4 +63,13 @@ public class UsrItemController {
 		
 		return Util.msgAndReplace(basketPutOutRd.getMsg(), "basket");
 	}
+	
+	@RequestMapping("/usr/item/order")
+	public String order(HttpServletRequest req, int bid) {
+		
+		Item item = is.getItemByBid(bid);
+		req.setAttribute("item", item);
+		
+		return "/usr/item/order";
+	}
 }

@@ -10,6 +10,8 @@ import com.example.demo.dto.Item;
 @Mapper
 public interface ItemDao {
 
-	public List<Item> getItems(@Param(value = "group")String group);
+	public List<Item> getItems(@Param(value = "group") String group);
+
+	public Item getItemByBid(@Param(value = "bid") int bid);
 	
 }

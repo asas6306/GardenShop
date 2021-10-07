@@ -11,5 +11,10 @@
 		</if>
 		order by `regDate` desc
 	</select>
-
+	
+	<select id="getItemByBid" resultType="Item">
+		select * from item, basket
+		where item.iid = basket.iid
+		and bid = #{bid}
+	</select>
 </mapper>

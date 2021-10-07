@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,6 +38,21 @@ public class ItemService {
 		}
 		
 		return items;
+	}
+
+	public Item getItemByBid(int bid) {
+		
+		Item item = id.getItemByBid(bid);
+
+		// 해당 이미지 가져오기
+		int iid = item.getIid();
+		if(item != null) {
+			GenFile file = fs.getGenFile("item", iid, "common", item.getGroup(), 0);
+			item.getExtraNotNull().put("file__common__all", file);
+		}
+		
+		
+		return item;
 	}
 
 }
