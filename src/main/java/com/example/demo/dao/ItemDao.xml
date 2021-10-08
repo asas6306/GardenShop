@@ -23,9 +23,4 @@
 		select uid, iid, `count` from basket
 		where bid = #{bid}
 	</insert>
-	
-	<delete id="deleteBasket">
-		delete from basket
-		where bid = #{bid}
-	</delete>
 </mapper>

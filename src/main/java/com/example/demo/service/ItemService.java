@@ -18,6 +18,8 @@ public class ItemService {
 	@Autowired
 	ItemDao id;
 	@Autowired
+	BasketService bs;
+	@Autowired
 	GenFileService fs;
 	
 	public List<Item> getItems(String group) {
@@ -59,16 +61,8 @@ public class ItemService {
 	public ResultData doOrder(int bid) {
 		
 		id.doOrder(bid);
-		id.deleteBasket(bid);
+		bs.putOut(bid);
 		
 		return new ResultData("S-1", "주문이 완료되었습니다.");
 	}
-	
-	public ResultData deleteBasket(int bid) {
-		
-		id.deleteBasket(bid);
-		
-		return new ResultData("S-1", "장바구니에서 삭제되었습니다.");
-	}
-
 }
