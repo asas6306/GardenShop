@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.ItemDao;
 import com.example.demo.dto.GenFile;
 import com.example.demo.dto.Item;
+import com.example.demo.util.ResultData;
 
 @Service
 public class ItemService {
@@ -53,6 +54,21 @@ public class ItemService {
 		
 		
 		return item;
+	}
+
+	public ResultData doOrder(int bid) {
+		
+		id.doOrder(bid);
+		id.deleteBasket(bid);
+		
+		return new ResultData("S-1", "주문이 완료되었습니다.");
+	}
+	
+	public ResultData deleteBasket(int bid) {
+		
+		id.deleteBasket(bid);
+		
+		return new ResultData("S-1", "장바구니에서 삭제되었습니다.");
 	}
 
 }

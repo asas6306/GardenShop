@@ -13,5 +13,9 @@ public interface ItemDao {
 	public List<Item> getItems(@Param(value = "group") String group);
 
 	public Item getItemByBid(@Param(value = "bid") int bid);
+
+	public void doOrder(@Param(value = "bid") int bid);
+
+	public void deleteBasket(@Param(value = "bid") int bid);
 	
 }

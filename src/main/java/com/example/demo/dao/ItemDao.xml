@@ -17,4 +17,15 @@
 		where item.iid = basket.iid
 		and bid = #{bid}
 	</select>
+	
+	<insert id="doOrder">
+		insert into `order`(uid, iid, `count`)
+		select uid, iid, `count` from basket
+		where bid = #{bid}
+	</insert>
+	
+	<delete id="deleteBasket">
+		delete from basket
+		where bid = #{bid}
+	</delete>
 </mapper>

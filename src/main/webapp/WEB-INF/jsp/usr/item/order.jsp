@@ -54,6 +54,7 @@ function doOrder__checkAndSubmit(form) {
 			</div>
 		</div>
 		<form enctype="multipart/form-data" onsubmit="doOrder__checkAndSubmit(this); return false;" action="doOrder" method="post" class="px-4" >
+		<input type="hidden" name="bid" value="${item.bid}">
 			<div class="flex justify-center border">
 				<div>
 					<div>이름</div>

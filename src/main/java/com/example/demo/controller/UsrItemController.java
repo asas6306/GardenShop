@@ -18,7 +18,7 @@ import com.example.demo.util.ResultData;
 import com.example.demo.util.Util;
 
 @Controller
-public class UsrItemController {
+public class UsrItemController extends _BaseController {
 	@Autowired
 	ItemService is;
 	@Autowired
@@ -67,9 +67,27 @@ public class UsrItemController {
 	@RequestMapping("/usr/item/order")
 	public String order(HttpServletRequest req, int bid) {
 		
-		Item item = is.getItemByBid(bid);
-		req.setAttribute("item", item);
+		Rq rq = (Rq) req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
 		
-		return "/usr/item/order";
+		Item item = is.getItemByBid(bid);
+		
+		if(item == null)
+			return msgAndBack(req, "해당 상품이 존재하지 않습니다.");
+		else if(uid != item.getUid())
+			return msgAndBack(req, "해당 상품을 주문 할 수 없습니다.");
+		else {
+			req.setAttribute("item", item);
+			return "/usr/item/order";
+		}
+	}
+	
+	@RequestMapping("/usr/item/doOrder")
+	@ResponseBody
+	public String doOrder(HttpServletRequest req, int bid) {
+		
+		ResultData doOrderRd = is.doOrder(bid);
+		
+		return Util.msgAndReplace(doOrderRd.getMsg(), "orderList");
 	}
 }

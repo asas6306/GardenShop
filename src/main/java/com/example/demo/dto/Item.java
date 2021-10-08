@@ -21,6 +21,7 @@ public class Item {
 	
 	// basket 연동
 	private int bid;
+	private int uid;
 	private int count;
 	
 	private String extra__thumbImg;
