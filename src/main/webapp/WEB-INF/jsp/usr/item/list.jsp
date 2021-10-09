@@ -10,7 +10,7 @@
 	<div class="max-w-5xl w-full">
 		<div class="p-2 border-b-4 border-blue-500 text-3xl font-bold">
 			<span>전체품목</span>
-			<c:if test="${param.group != null}">
+			<c:if test="${param.group != '' && param.group != null}">
 				<span> : ${param.group.toUpperCase()}</span>
 			</c:if>
 		</div>
@@ -49,21 +49,21 @@
 			</c:forEach>
 		</div>
 		<div class="flex">
-				<div class="flex justify-center text-lg flex-grow text-gray-700">
-					<a href="list?group=${param.group}&page=1" class="p-2 hover:text-black hover:text-blue-500">처음</a>
-					<a href="list?group=${param.group}&page=${printPageIndexDown}" class="p-2 hover:text-black hover:text-blue-500">이전</a>
-					<c:forEach items='${printPageIndexs}' var='printPageIndex'>
+				<div class="flex justify-center text-lg flex-grow text-gray-700 gap-2">
+					<a href="list?group=${param.group}&page=1" class="hover:text-black hover:text-blue-500">처음</a>
+					<a href="list?group=${param.group}&page=${printPageIndexDown}" class="hover:text-black hover:text-blue-500">이전</a>
+					<c:forEach items="${printPageIndexs}" var="printPageIndex">
 						<c:choose>
 							<c:when test="${printPageIndex == page}">
-								<a href="list?group=${param.group}&page=${printPageIndex}" class="p-2 text-black font-extrabold">${printPageIndex}</a>
+								<a href="list?group=${param.group}&page=${printPageIndex}" class="px-2 border bg-blue-300">${printPageIndex}</a>
 							</c:when>
 							<c:otherwise>
-								<a href="list?group=${param.group}&page=${printPageIndex}" class="p-2 hover:text-black hover:text-blue-500">${printPageIndex}</a>
+								<a href="list?group=${param.group}&page=${printPageIndex}" class="px-2 hover:bg-blue-500 hover:text-white border">${printPageIndex}</a>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
-					<a href="list?group=${param.group}&page=${printPageIndexUp}" class="p-2 hover:text-black hover:text-blue-500">다음</a>
-					<a href="list?group=${param.group}&page=1000000" class="p-2 hover:text-black hover:text-blue-500">끝</a>
+					<a href="list?group=${param.group}&page=${printPageIndexUp}" class="hover:text-black hover:text-blue-500">다음</a>
+					<a href="list?group=${param.group}&page=1000000" class="hover:text-black hover:text-blue-500">끝</a>
 				</div>
 			</div>
 	</div>

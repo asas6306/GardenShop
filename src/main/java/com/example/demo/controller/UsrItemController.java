@@ -14,6 +14,7 @@ import com.example.demo.dto.Item;
 import com.example.demo.dto.Rq;
 import com.example.demo.service.BasketService;
 import com.example.demo.service.ItemService;
+import com.example.demo.service.SimplerService;
 import com.example.demo.util.ResultData;
 import com.example.demo.util.Util;
 
@@ -23,13 +24,25 @@ public class UsrItemController extends _BaseController {
 	ItemService is;
 	@Autowired
 	BasketService bs;
+	@Autowired
+	SimplerService ss;
 	
 	
 	@RequestMapping("/usr/item/list")
-	public String list(HttpServletRequest req, @RequestParam(defaultValue = "all") String group) {
+	public String list(HttpServletRequest req, @RequestParam(defaultValue = "all") String group, @RequestParam(defaultValue = "1") int page) {
 		
-		List<Item> items = is.getItems(group);
-		req.setAttribute("items", items);
+		int itemsCnt = is.getItemsCnt(group);
+		
+		// 페이징
+		if(itemsCnt != 0) {
+			int pageCnt = 10;
+			page = ss.page(req, page, pageCnt, itemsCnt);
+			
+			List<Item> items = is.getItemsForPaging(group, page, pageCnt);
+			req.setAttribute("items", items);
+		} else {
+			req.setAttribute("items", null);
+		}
 		
 		return "/usr/item/list";
 	}
@@ -57,11 +70,21 @@ public class UsrItemController extends _BaseController {
 	
 	@RequestMapping("/usr/item/putOut")
 	@ResponseBody
-	public String putOut(int bid) {
+	public String putOut(HttpServletRequest req, int bid) {
 		
-		ResultData basketPutOutRd = bs.putOut(bid);
+		Rq rq = (Rq) req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
 		
-		return Util.msgAndReplace(basketPutOutRd.getMsg(), "basket");
+		Item item = is.getItemByBid(bid);
+		
+		if(item == null)
+			return msgAndBack(req, "해당 상품이 존재하지 않습니다.");
+		else if(uid != item.getUid())
+			return msgAndBack(req, "해당 상품을 주문 할 수 없습니다.");
+		else {
+			ResultData basketPutOutRd = bs.putOut(bid);
+			return Util.msgAndReplace(basketPutOutRd.getMsg(), "basket");
+		}
 	}
 	
 	@RequestMapping("/usr/item/order")
@@ -85,9 +108,18 @@ public class UsrItemController extends _BaseController {
 	@RequestMapping("/usr/item/doOrder")
 	@ResponseBody
 	public String doOrder(HttpServletRequest req, int bid) {
+		Rq rq = (Rq) req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
 		
-		ResultData doOrderRd = is.doOrder(bid);
+		Item item = is.getItemByBid(bid);
 		
-		return Util.msgAndReplace(doOrderRd.getMsg(), "orderList");
+		if(item == null)
+			return msgAndBack(req, "해당 상품이 존재하지 않습니다.");
+		else if(uid != item.getUid())
+			return msgAndBack(req, "해당 상품을 주문 할 수 없습니다.");
+		else {
+			ResultData doOrderRd = is.doOrder(bid);
+			return Util.msgAndReplace(doOrderRd.getMsg(), "orderList");
+		}
 	}
 }

@@ -42,6 +42,11 @@ public class ItemService {
 		
 		return items;
 	}
+	
+	public int getItemsCnt(String group) {
+		
+		return id.getItemsCnt(group);
+	}
 
 	public Item getItemByBid(int bid) {
 		
@@ -65,4 +70,26 @@ public class ItemService {
 		
 		return new ResultData("S-1", "주문이 완료되었습니다.");
 	}
+
+	public List<Item> getItemsForPaging(String group, int page, int pageCnt) {
+		
+		List<Item> items = id.getItemsForPaging(group, page,pageCnt);
+		
+		// 해당 이미지 가져오기
+		List<Integer> iids = items.stream().map(item -> item.getIid())
+				.collect(Collectors.toList());
+		if(!iids.isEmpty()) {
+			Map<Integer, Map<String, GenFile>> filesMap = 
+					fs.getFilesMapKeyRelIdAndFileNo("item", iids, "common", group);
+			for(Item item : items) {
+				Map<String, GenFile> mapByFileNo = filesMap.get(item.getIid());
+		
+				if (mapByFileNo != null)
+					item.getExtraNotNull().put("file__common__all", mapByFileNo);
+			}
+		}
+		
+		return items;
+	}
+
 }

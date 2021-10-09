@@ -25,16 +25,14 @@ public class UsrCarContoller {
 	@RequestMapping("/usr/car/list")
 	public String list(HttpServletRequest req, @RequestParam(defaultValue = "all") String group, @RequestParam(defaultValue = "1") int page) {
 		
-		List<Car> cars = cs.getCars(group);
-		req.setAttribute("cars", cars);
-		
-		int carsCnt = cars.size(); 
+		int carsCnt = cs.getCarsCnt(group);
 		
 		// 페이징
 		if(carsCnt != 0) {
-			int pageCnt = 15;
+			int pageCnt = 9;
 			page = ss.page(req, page, pageCnt, carsCnt);
 			
+			List<Car> cars = cs.getCarsWithPaging(group, page, pageCnt);
 			req.setAttribute("cars", cars);
 		} else {
 			req.setAttribute("cars", null);

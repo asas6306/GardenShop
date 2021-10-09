@@ -16,4 +16,8 @@ public interface CarDao {
 
 	public List<Car> getRecommend();
 
+	public List<Car> getCarsWithPaging(@Param(value="group") String group, @Param(value="page") int page, @Param(value="pageCnt") int pageCnt);
+
+	public int getCarsCnt(@Param(value="group") String group);
+
 }

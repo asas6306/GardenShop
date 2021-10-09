@@ -12,6 +12,22 @@
 		order by cid desc
 	</select>
 	
+	<select id="getCarsWithPaging" resultType="Car">
+		select * from car
+		<if test="group != 'all'">
+			where `group` = #{group}
+		</if>
+		order by cid
+		limit #{page}, #{pageCnt}
+	</select>
+	
+	<select id="getCarsCnt" resultType="int">
+		select count(*) from car
+		<if test="group != 'all'">
+			where `group` = #{group}
+		</if>
+	</select>
+	
 	<select id="getBestCar" resultType="Car">
 		select * from car, carDetail
 		where car.cid = carDetail.cid

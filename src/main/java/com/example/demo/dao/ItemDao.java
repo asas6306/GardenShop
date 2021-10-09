@@ -17,5 +17,9 @@ public interface ItemDao {
 	public void doOrder(@Param(value = "bid") int bid);
 
 	public void deleteBasket(@Param(value = "bid") int bid);
+
+	public int getItemsCnt(@Param(value = "group") String group);
+
+	public List<Item> getItemsForPaging(@Param(value="group") String group, @Param(value="page") int page, @Param(value="pageCnt") int pageCnt);
 	
 }

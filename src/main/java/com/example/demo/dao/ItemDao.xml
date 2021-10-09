@@ -12,6 +12,22 @@
 		order by `regDate` desc
 	</select>
 	
+	<select id="getItemsForPaging" resultType="Item">
+		select * from item
+		<if test="group != 'all'">
+			where `group` = #{group}
+		</if>
+		order by `regDate` desc
+		limit #{page}, #{pageCnt}
+	</select>
+	
+	<select id="getItemsCnt" resultType="int">
+		select count(*) from item
+		<if test="group != 'all'">
+			where `group` = #{group}
+		</if>
+	</select>
+	
 	<select id="getItemByBid" resultType="Item">
 		select * from item, basket
 		where item.iid = basket.iid
