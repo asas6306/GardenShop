@@ -41,7 +41,7 @@
 									const result = confirm('상담을 요청하시겠습니까?');
 									
 									if(result)
-										location.href='../cnsl/send?uid=' + uid + '&target=' + car + '&year=' + year;
+										location.href='../sup/send?uid=' + uid + '&target=' + car + '&year=' + year;
 								}
 								</script>
 							</div>
