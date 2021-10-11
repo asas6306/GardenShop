@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.SupportDao;
+import com.example.demo.dto.Article;
 import com.example.demo.util.ResultData;
 
 @Service
@@ -18,6 +21,11 @@ public class SupportService {
 		supd.reqCounsel(target, year, uid);
 		
 		return new ResultData("S-1", "상담 신청이 완료되었습니다.");
+	}
+
+	public List<Article> getFAQ() {
+		
+		return supd.getFAQ();
 	}
 
 }

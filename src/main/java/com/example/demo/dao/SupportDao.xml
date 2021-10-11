@@ -9,4 +9,10 @@
 		set uid = #{uid}, target = #{target}, `year` = #{year}
 	</insert>
 	
+	<select id="getFAQ" resultType="Article">
+		select * from article
+		where articleType = 'FAQ'
+		and blindState = 0
+	</select>
+	
 </mapper>
