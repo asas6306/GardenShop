@@ -8,4 +8,15 @@
 	 	select distinct `group` from article
 	 	where articleType = #{articleType}
 	 </select>
+	 
+	 <insert id="doAdd">
+	 	insert into article
+	 	<set>
+	 		uid = #{uid},
+	 		title = #{title},
+	 		body = #{body},
+	 		`group` = #{group},
+	 		articleType = #{articleType}
+	 	</set>
+	 </insert>
 </mapper>

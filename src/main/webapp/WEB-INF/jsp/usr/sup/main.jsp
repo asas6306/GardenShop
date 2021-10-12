@@ -21,13 +21,34 @@
 						<input type="button" value="작성하기" class="p-1 cursor-pointer bg-blue-300 hover:bg-blue-500" onclick="location.href='addFAQ'" />
 					</div>
 				</div>
-				<div class="grid grid-cols-4 p-1">
-					<c:if test="${FAQs.size() == 0}">
-						음슴
-					</c:if>
-					<c:forEach var="FAQ" items="${FAQs}">
-						${FAQ.title}
-					</c:forEach>
+				<div class="flex p-1">
+					<div class="FAQ-board w-full">
+						<div class="flex justify-center">
+							<c:if test="${FAQs.size() == 0}">
+								<span>등록된 게시물이 없습니다.</span>
+							</c:if>
+						</div>
+						<c:forEach var="FAQ" items="${FAQs}">
+							<div class="FAQ px-4 border-b-2 border-blue-300">
+								<div class="py-2">
+									<span>[${FAQ.group}]</span>
+									<span class="px-2" class="" onclick="show_body(this);">${FAQ.title}</span>
+								</div>
+								<div class="FAQBody flex w-full hidden">
+									<span class="bg-gray-100 w-full px-4 py-2">${FAQ.body}</span>
+								</div>
+							</div>
+							<script>
+								function show_body(btn) {
+									const $clicked = $(btn);
+									const target1 = $clicked.closest('.FAQ-board').find('.FAQBody');
+									const target2 = $clicked.closest('.FAQ').find('.FAQBody');
+									target1.css('display', 'none');
+									target2.css('display', 'flex');
+								}
+							</script>
+						</c:forEach>
+					</div>
 				</div>
 			</div>
 		</div>

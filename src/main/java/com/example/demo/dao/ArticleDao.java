@@ -12,4 +12,8 @@ public interface ArticleDao {
 
 	public List<Board> getBoards(@Param(value = "articleType") String articleType);
 
+	public void doAdd(@Param(value = "uid") int uid, @Param(value = "title") String title, 
+			@Param(value = "body") String body, @Param(value = "group") String group, 
+			@Param(value = "articleType") String articleType);
+
 }

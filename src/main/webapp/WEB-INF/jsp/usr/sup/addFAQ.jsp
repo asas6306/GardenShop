@@ -10,7 +10,14 @@ function addFAQ__checkAndSubmit(form) {
 		alert('처리중입니다.');
 		return;
 	}
-
+	
+	form.group.value = form.group.value.trim();
+	if ( form.group.value == 0 ) {
+		alert('그룹을 선택해주세요.');
+		form.group.focus();
+		return false;
+	}
+	
 	form.title.value = form.title.value.trim();
 	if ( form.title.value.length == 0 ) {
 		alert('제목을 입력해주세요.');
@@ -36,7 +43,7 @@ function addFAQ__checkAndSubmit(form) {
 		<form onsubmit="addFAQ__checkAndSubmit(this); return false;" action="doAddFAQ" method="post">
 			<div class="">
 				<div class="w-full">
-					<select name="groupFAQ" class="p-2 font-thin text-lg outline-none border border-blue-500">
+					<select name="group" class="p-2 font-thin text-lg outline-none border border-blue-500">
 						<option value="0" class="font-thin">=== 분류 선택 ===</option>
 						<c:forEach var="board" items="${boards}">
 							<option value="${board.group}" class="font-thin">${board.group}</option>

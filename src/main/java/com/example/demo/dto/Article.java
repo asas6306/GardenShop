@@ -17,15 +17,14 @@ public class Article {
 	private String regDate;
 	private String updateDate;
 	private int uid;
-	private int hit;
 	private int like;
-	private int boardCode;
+	private String group;
 	private String articleType;
 	private int delState;
 	
 	private String authName;
 	private String nickname;
-	private String boardName;
+	
 	private String extra__thumbImg;
 	
 	private Map<String, Object> extra;

@@ -54,4 +54,16 @@ public class UsrSupportController extends _BaseController {
 		
 		return "usr/sup/addFAQ";
 	}
+	
+	@RequestMapping("/usr/sup/doAddFAQ")
+	@ResponseBody
+	public String doAddFAQ(HttpServletRequest req, String group, String title, String body) {
+		
+		Rq rq = (Rq) req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
+		
+		ResultData doAddFAQRd = as.doAdd(uid, title, body, group, "FAQ");
+		
+		return Util.msgAndReplace(doAddFAQRd.getMsg(), "main");
+	}
 }
