@@ -12,8 +12,14 @@
 			</div>
 			<div class="h-4"></div>
 			<div class="main-best-4 border-2 border-gray-300">
-				<div class="flex">
-					<span class="w-full text-center text-4xl p-4">FAQ</span>
+				<div class="flex justify-between">
+					<div></div>
+					<div>
+						<span class="w-full text-center text-4xl p-4">FAQ</span>
+					</div>
+					<div class="flex items-center">
+						<input type="button" value="작성하기" class="p-1 cursor-pointer bg-blue-300 hover:bg-blue-500" onclick="location.href='addFAQ'" />
+					</div>
 				</div>
 				<div class="grid grid-cols-4 p-1">
 					<c:if test="${FAQs.size() == 0}">
