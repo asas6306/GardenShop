@@ -13,6 +13,9 @@
 		select * from article
 		where articleType = 'FAQ'
 		and blindState = 0
+		<if test="group != null">
+			and `group` = #{group}
+		</if>
 	</select>
 	
 </mapper>

@@ -21,6 +21,12 @@
 						<input type="button" value="작성하기" class="p-1 cursor-pointer bg-blue-300 hover:bg-blue-500" onclick="location.href='addFAQ'" />
 					</div>
 				</div>
+				<div class="flex px-8 gap-3">
+					<a href="main">[전체보기]</a>
+					<c:forEach var="group" items="${groups}">
+						<a href="main?group=${group.group}">[${group.group}]</a>
+					</c:forEach>
+				</div>
 				<div class="flex p-1">
 					<div class="FAQ-board w-full">
 						<div class="flex justify-center">

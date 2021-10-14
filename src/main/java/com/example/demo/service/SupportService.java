@@ -23,9 +23,8 @@ public class SupportService {
 		return new ResultData("S-1", "상담 신청이 완료되었습니다.");
 	}
 
-	public List<Article> getFAQ() {
+	public List<Article> getFAQ(String group) {
 		
-		return supd.getFAQ();
+		return supd.getFAQ(group);
 	}
-
 }

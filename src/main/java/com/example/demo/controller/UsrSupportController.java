@@ -25,10 +25,13 @@ public class UsrSupportController extends _BaseController {
 	SupportService sups;
 	
 	@RequestMapping("/usr/sup/main")
-	public String main(HttpServletRequest req) {
+	public String main(HttpServletRequest req, String group) {
 		
-		List<Article> FAQs = sups.getFAQ();
+		List<Article> FAQs = sups.getFAQ(group);
 		req.setAttribute("FAQs", FAQs);
+		
+		List<Board> groups = as.getBoards("FAQ");
+		req.setAttribute("groups", groups);
 		
 		return "usr/sup/main";
 	}

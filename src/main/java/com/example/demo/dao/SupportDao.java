@@ -12,6 +12,6 @@ public interface SupportDao {
 
 	public void reqCounsel(@Param(value="target") String target, @Param(value="year") String year, @Param(value="uid") int uid);
 
-	public List<Article> getFAQ();
+	public List<Article> getFAQ(@Param(value="group") String group);
 
 }
