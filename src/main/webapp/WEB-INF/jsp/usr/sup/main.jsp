@@ -17,7 +17,8 @@
 					<div>
 						<span class="w-full text-center text-4xl p-4">FAQ</span>
 					</div>
-					<div class="flex items-center">
+					<div class="flex items-center px-2 gap-2">
+						<input type="button" value="1:1 문의" class="py-1 px-2 cursor-pointer bg-blue-300 hover:bg-blue-500" onclick="location.href='inquire'" />
 						<input type="button" value="작성하기" class="p-1 cursor-pointer bg-blue-300 hover:bg-blue-500" onclick="location.href='addFAQ'" />
 					</div>
 				</div>

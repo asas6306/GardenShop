@@ -69,4 +69,25 @@ public class UsrSupportController extends _BaseController {
 		
 		return Util.msgAndReplace(doAddFAQRd.getMsg(), "main");
 	}
+	
+	@RequestMapping("/usr/sup/inquire")
+	public String inquire(HttpServletRequest req) {
+		
+		List<Board> boards = as.getBoards("FAQ");
+		req.setAttribute("boards", boards);
+		
+		return "usr/sup/inquire";
+	}
+	
+	@RequestMapping("/usr/sup/doInquire")
+	@ResponseBody
+	public String doInquire(HttpServletRequest req, String group, String title, String body) {
+		
+		Rq rq = (Rq) req.getAttribute("rq");
+		int uid = rq.getLoginedMemberUid();
+		
+		ResultData doAddInquireRd = as.doAdd(uid, title, body, group, "inquire");
+		
+		return Util.msgAndReplace(doAddInquireRd.getMsg(), "main");
+	}
 }
