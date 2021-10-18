@@ -19,7 +19,6 @@ public class CarService {
 	GenFileService fs;
 	
 	public List<Car> getBest() {
-		
 		List<Car> cars = cd.getBestCar();
 		
 		// 해당 이미지 가져오기
@@ -40,9 +39,9 @@ public class CarService {
 		return cars;
 	}
 
-	public List<Car> getCars(String group) {
+	public List<Car> getCars(String group, String sort) {
 		
-		List<Car> cars = cd.getCars(group);
+		List<Car> cars = cd.getCars(group, sort);
 		
 		// 해당 이미지 가져오기
 		List<Integer> cids = cars.stream().map(car -> car.getCid())

@@ -12,7 +12,7 @@ public interface CarDao {
 
 	public List<Car> getBestCar();
 
-	public List<Car> getCars(@Param(value="group") String group);
+	public List<Car> getCars(@Param(value="group") String group, @Param(value="sort") String sort);
 
 	public List<Car> getRecommend();
 

@@ -18,6 +18,9 @@ public class Car {
 	private int year;
 	private int price;
 	
+	// carDetail
+	private String sales;
+	
 	private String extra__thumbImg;
 	private Map<String, Object> extra;
 	

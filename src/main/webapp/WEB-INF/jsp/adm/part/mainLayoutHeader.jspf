@@ -127,9 +127,9 @@
 						<c:otherwise>
 							<c:if test="${rq.admin}">
 								<li>
-									<a href="/adm/home/main" class="p-3 hover:text-gray-900">
+									<a href="/usr/home/main" class="p-3 hover:text-gray-900">
 										<i class="fas fa-house-user"></i>
-										<span>관리자페이지</span>
+										<span>사이트</span>
 									</a>
 								</li>
 							<span>|</span>

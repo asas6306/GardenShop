@@ -5,11 +5,19 @@
 
 <mapper namespace="com.example.demo.dao.CarDao">
 	<select id="getCars" resultType="Car">
-		select * from car
+		select * from car, carDetail
+		where car.cid = carDetail.cid
 		<if test="group != 'all'">
-			where `group` = #{group}
+			and `group` = #{group}
 		</if>
-		order by cid desc
+		<choose>
+			<when test="sort == 'sales'">
+				order by sales desc
+			</when>
+			<otherwise>
+				order by cid desc
+			</otherwise>
+		</choose>
 	</select>
 	
 	<select id="getCarsWithPaging" resultType="Car">
