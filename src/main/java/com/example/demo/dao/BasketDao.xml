@@ -7,7 +7,9 @@
 	<select id="getBasketList" resultType="Item">
 		select item.*, basket.bid, basket.`count` from basket, item
 		where basket.iid = item.iid
-		and basket.uid = #{uid}
+		<if test="uid != 0">
+			and basket.uid = #{uid}
+		</if>
 	</select>
 	
 	<insert id="putIn">
