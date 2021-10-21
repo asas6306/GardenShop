@@ -39,4 +39,10 @@
 		select uid, iid, `count` from basket
 		where bid = #{bid}
 	</insert>
+	
+	<select id="getOrders" resultType="Item">
+		select * from `order`, item
+		where `order`.iid = item.iid
+		order by `order`.`regDate` desc
+	</select>
 </mapper>

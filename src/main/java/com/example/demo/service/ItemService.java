@@ -92,4 +92,9 @@ public class ItemService {
 		return items;
 	}
 
+	public List<Item> getOrders() {
+		
+		return id.getOrders();
+	}
+
 }

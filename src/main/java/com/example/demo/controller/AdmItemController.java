@@ -32,8 +32,8 @@ public class AdmItemController extends _BaseController {
 	@RequestMapping("/adm/item/order")
 	public String order(HttpServletRequest req) {
 		
-		List<Item> baskets = bs.getBasketList(0);
-		req.setAttribute("baskets", baskets);
+		List<Item> orders = is.getOrders();
+		req.setAttribute("orders", orders);
 		
 		return "/adm/item/order";
 	}

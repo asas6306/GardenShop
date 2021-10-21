@@ -21,5 +21,7 @@ public interface ItemDao {
 	public int getItemsCnt(@Param(value = "group") String group);
 
 	public List<Item> getItemsForPaging(@Param(value="group") String group, @Param(value="page") int page, @Param(value="pageCnt") int pageCnt);
+
+	public List<Item> getOrders();
 	
 }
