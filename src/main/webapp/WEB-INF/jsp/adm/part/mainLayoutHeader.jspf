@@ -49,9 +49,9 @@
 				</div>
 				<div class="flex items-center text-gray-500">
 					<li>
-						<a href="../member/mypage" class="p-3 hover:text-gray-900">
-							<i class="fas fa-user"></i>
-							<span>마이페이지</span>
+						<a href="/usr/home/main" class="p-3 hover:text-gray-900">
+							<i class="fas fa-house-user"></i>
+							<span>사이트</span>
 						</a>
 					</li>
 					<span>|</span>
