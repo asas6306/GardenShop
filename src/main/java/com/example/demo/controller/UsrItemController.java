@@ -129,15 +129,8 @@ public class UsrItemController extends _BaseController {
 		Rq rq = (Rq) req.getAttribute("rq");
 		int uid = rq.getLoginedMemberUid();
 		
-		Item item = is.getItemByBid(bid);
 		
-		if(item == null)
-			return msgAndBack(req, "해당 상품이 존재하지 않습니다.");
-		else if(uid != item.getUid())
-			return msgAndBack(req, "해당 상품을 주문 할 수 없습니다.");
-		else {
-			req.setAttribute("item", item);
-			return "/usr/item/order";
-		}
+		
+		return "/usr/item/order";
 	}
 }
