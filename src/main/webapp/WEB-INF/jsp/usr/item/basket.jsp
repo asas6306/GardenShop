@@ -18,6 +18,9 @@
 				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
 				<c:set var="file" value="${item.extra.file__common__all[fileNo]}"></c:set>
 				<div class="flex border">
+					<div class="flex items-center p-1">
+						<input type="checkbox" name="chk" value="${item.iid}"  />
+					</div>
 					<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
 						<img alt="사진 준비중 입니다." src="${file.forPrintUri}" class="w-36" />
 					</a>
@@ -67,6 +70,10 @@
 			<div class="flex justify-center items-center text-2xl h-24">
 				<span>총 주문금액&nbsp</span>
 				<span class="font-bold text-blue-500">${totalPrice}원</span>
+			</div>
+			<div class="flex justify-center gap-2 pb-3">
+				<input type="button" value="주문하기" class="p-1 bg-blue-300 hover:bg-blue-500 text-xl" onclick="location.href='chkbox?chk=${chk}'" />
+				<input type="button" value="삭제하기" class="p-1 bg-red-300 hover:bg-red-500 text-xl" onclick="item__putOut(${item.bid})" />
 			</div>
 		</div>
 	</div>
