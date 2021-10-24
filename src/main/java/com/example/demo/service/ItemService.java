@@ -94,7 +94,23 @@ public class ItemService {
 
 	public List<Item> getOrders() {
 		
-		return id.getOrders();
+		List<Item> items = id.getOrders();
+		
+		// 해당 이미지 가져오기
+		List<Integer> iids = items.stream().map(item -> item.getIid())
+				.collect(Collectors.toList());
+		if(!iids.isEmpty()) {
+			Map<Integer, Map<String, GenFile>> filesMap = 
+					fs.getFilesMapKeyRelIdAndFileNo("item", iids, "common", "all");
+			for(Item item : items) {
+				Map<String, GenFile> mapByFileNo = filesMap.get(item.getIid());
+		
+				if (mapByFileNo != null)
+					item.getExtraNotNull().put("file__common__all", mapByFileNo);
+			}
+		}
+		
+		return items;
 	}
 
 }
