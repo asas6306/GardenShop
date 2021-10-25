@@ -135,11 +135,10 @@ public class UsrItemController extends _BaseController {
 	}
 	
 	@RequestMapping("/usr/item/chkbox")
-	public String chkbox(HttpServletRequest req) {
+	public String chkbox(HttpServletRequest req, String[] chk) {
 		
-		String[] chk = req.getParameterValues("chk");
-		
-		System.out.println(chk.length);
+//		String[] chk = req.getParameterValues("chk");
+		System.out.println(chk);
 		
 		return "/usr/item/order";
 	}

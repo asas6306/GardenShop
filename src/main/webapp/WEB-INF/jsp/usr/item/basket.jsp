@@ -4,8 +4,6 @@
 <%@ page import="com.example.demo.util.Util"%>
 <%@ include file="../part/mainLayoutHeader.jspf"%>
 
-<c:set var="fileInputMaxCount" value="3" />
-
 <section class="flex justify-center">
 	<div class="max-w-5xl w-full">
 		<div class="p-2 border-b-4 border-blue-500 text-3xl font-bold">
@@ -14,12 +12,12 @@
 		<div class="grid grid-cols-1 gap-3 p-4">
 			<c:set var="totalPrice" value="0"></c:set>
 			<c:forEach var="item" items="${items}">
-				<c:set var="totalPrice" value="${totalPrice + item.price}"></c:set>
+				<c:set var="totalPrice" value="${totalPrice + item.price}" ></c:set>
 				<c:set var="fileNo" value="${String.valueOf(0)}"></c:set>
 				<c:set var="file" value="${item.extra.file__common__all[fileNo]}"></c:set>
 				<div class="flex border">
 					<div class="flex items-center p-1">
-						<input type="checkbox" name="chk" value="${item.iid}"  />
+						<input id="chkbox" type="checkbox" name="chk_${item.iid}" value="${item.iid}" onchange="basketChkboxDo(this, ${totalPrice}, ${item.price});" />
 					</div>
 					<a href="${file.forPrintUri}" target="_blank" title="자세히 보기" >
 						<img alt="사진 준비중 입니다." src="${file.forPrintUri}" class="w-36" />
@@ -65,11 +63,22 @@
 					</div>
 				</div>
 			</c:forEach>
+			<script>
+				$("input[type=checkbox][id=chkbox]").prop("checked", true);
+				
+				function basketChkboxDo(btn, totalPrice, itemPrice) {
+					if(btn.checked) {
+						$('.printTotalPrice').html(totalPrice - itemPrice + "원");
+					} else {
+						$('.printTotalPrice').html(totalPrice + itemPrice + "원");
+					}
+				}
+			</script>
 		</div>
 		<div class="border">
 			<div class="flex justify-center items-center text-2xl h-24">
 				<span>총 주문금액&nbsp</span>
-				<span class="font-bold text-blue-500">${totalPrice}원</span>
+				<span class="printTotalPrice font-bold text-blue-500">${totalPrice}원</span>
 			</div>
 			<div class="flex justify-center gap-2 pb-3">
 				<input type="button" value="주문하기" class="p-1 bg-blue-300 hover:bg-blue-500 text-xl" onclick="location.href='chkbox?chk=${chk}'" />
